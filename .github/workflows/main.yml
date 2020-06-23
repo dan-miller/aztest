@@ -7,7 +7,7 @@ name: Sync issue to Azure DevOps work item
 
 jobs:
   alert:
-    if: contains(github.event.label.name, 'Bug') || contains(github.event.issue.labels.*.name, 'Bug')
+    if: contains(toJson(github.event), 'Type') && contains(toJson(github.event), 'Bug')
     runs-on: ubuntu-latest
     steps:
       - uses: danhellem/github-actions-issue-to-work-item@master

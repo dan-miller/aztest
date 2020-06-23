@@ -7,11 +7,9 @@ name: Sync issue to Azure DevOps work item
 
 jobs:
   alert:
+    if: contains(github.event.issue.labels.*.name, 'Bug')
     runs-on: ubuntu-latest
     steps:
-      - name: echo 
-        run: |
-          echo ${{ github.event.issue }}
       - uses: danhellem/github-actions-issue-to-work-item@master
         env:
           ado_token: "${{ secrets.ADO_PERSONAL_ACCESS_TOKEN }}"

@@ -12,7 +12,7 @@ jobs:
       - name: Print context
         env:
           EVENT_PAYLOAD: ${{ toJson(github.event) }}
-          LABEL: ${{ github.event.issue.labels.[0].name }}
+          LABEL: ${{ github.event.issue.labels[0].name }}
           TEST_RESULT: ${{ contains(github.event.issue.labels.*.name, 'Type":" Bug') }}
         run: | 
           echo "$EVENT_PAYLOAD"

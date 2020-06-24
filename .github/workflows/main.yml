@@ -15,7 +15,7 @@ jobs:
         run: | 
           echo "$EVENT_PAYLOAD"
       - uses: danhellem/github-actions-issue-to-work-item@master
-        if: ${{ contains(github.event.issue.labels.*.name, ${TEST_VALUE}) }}
+        if: contains(github.event.issue.labels.*.name, env.TEST_VALUE)
         env:
           TEST_VALUE: "Type: Bug"
           ado_token: "${{ secrets.ADO_PERSONAL_ACCESS_TOKEN }}"

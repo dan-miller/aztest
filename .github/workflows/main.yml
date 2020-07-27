@@ -6,7 +6,7 @@ name: Sync issue to Azure DevOps work item
       [deleted, closed, reopened, labeled, unlabeled]
 
 jobs:
-  alert:
+  sync:
     runs-on: ubuntu-latest
     steps:
       - name: Block Concurrent Executions
